@@ -19,7 +19,7 @@ without either copying the image or the LaTeX.
 
 ### Usage instructions
  1. Open Alfred
- 2. Type ``` (backtick)
+ 2. Type <code>`</code> (backtick)
  3. Start typing a math expression in AsciiMath syntax.
  4. As soon as you start typing, another window opens and
     it displays the typesetted math in real time as you type.
@@ -31,7 +31,7 @@ without either copying the image or the LaTeX.
 ### Built-in reference
 If you are stuck in middle of typing, just stop, hit shift,
 and it'll pop up a reference. When done consulting the reference,
-hit escape, and start typing from where you left off!
+hit escape, and start typing from where you left off!  
 ![](demo-images/demo-ref.gif)
 
 ### Icon credits
