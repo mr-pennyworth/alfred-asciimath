@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>mr.pennyworth.asciimath</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>183B1354-8AC3-4797-9EFF-C9DEEF20D280</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8C141DAB-74B4-469B-97F5-8A2029575C1B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7058A4EE-02E0-4988-9847-D2B58671543B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BC71E4C2-F3C1-486C-8350-688B1FBAC8DF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9D7CC295-83F4-487D-9853-DFA698A895B4</key>
+		<array/>
+		<key>BC71E4C2-F3C1-486C-8350-688B1FBAC8DF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9D7CC295-83F4-487D-9853-DFA698A895B4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Mr. Pennyworth</string>
+	<key>description</key>
+	<string>Live render and copy AsciiMath</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>AsciiMath</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>open -g "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>9D7CC295-83F4-487D-9853-DFA698A895B4</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>`</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>query=$1
+
+function urlquote() {
+  python2 -c "import urllib; import sys; sys.stdout.write(urllib.quote(sys.argv[-1]))" "$1"
+}
+
+quoted=$(urlquote "$query")
+
+open -g "asciimath://render?$quoted"
+
+cat &lt;&lt; EOF
+{"items": [
+    {
+        "title": "Copy Math",
+        "subtitle": "as Image (⌘: as LaTeX)",
+        "arg": "asciimath://copyImage?$quoted",
+        "quicklookurl": "$(pwd)/docs/documentation.html",
+        "mods": {
+            "cmd": {
+                "subtitle": "as LaTeX",
+                "arg": "asciimath://copyLatex?$quoted"
+            }
+        }
+    }
+]}
+EOF</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>AsciiMath</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>BC71E4C2-F3C1-486C-8350-688B1FBAC8DF</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>7058A4EE-02E0-4988-9847-D2B58671543B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>xattr -d com.apple.quarantine 'AsciiMath Renderer.app'
+
+open -g 'AsciiMath Renderer.app'</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8C141DAB-74B4-469B-97F5-8A2029575C1B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>.asciimath-init</string>
+				<key>subtext</key>
+				<string>permission required to auto-close window on closing alfred-search-bar</string>
+				<key>text</key>
+				<string>Set up and grant permissions to AsciiMath</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>183B1354-8AC3-4797-9EFF-C9DEEF20D280</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Set up by typing ".asciimath-init" (without quotes) in Alfred.
+
+Note:
+ The accessibility permission is needed so that the math window
+ can automatically close if user presses escape to exit alfred
+ without either copying the image or LaTeX
+
+All icon credits: flaticon</string>
+	<key>uidata</key>
+	<dict>
+		<key>183B1354-8AC3-4797-9EFF-C9DEEF20D280</key>
+		<dict>
+			<key>xpos</key>
+			<integer>10</integer>
+			<key>ypos</key>
+			<integer>120</integer>
+		</dict>
+		<key>7058A4EE-02E0-4988-9847-D2B58671543B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>10</integer>
+			<key>ypos</key>
+			<integer>10</integer>
+		</dict>
+		<key>8C141DAB-74B4-469B-97F5-8A2029575C1B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>170</integer>
+			<key>ypos</key>
+			<integer>120</integer>
+		</dict>
+		<key>9D7CC295-83F4-487D-9853-DFA698A895B4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>340</integer>
+			<key>ypos</key>
+			<integer>10</integer>
+		</dict>
+		<key>BC71E4C2-F3C1-486C-8350-688B1FBAC8DF</key>
+		<dict>
+			<key>xpos</key>
+			<integer>170</integer>
+			<key>ypos</key>
+			<integer>10</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string>0.0.4</string>
+	<key>webaddress</key>
+	<string>https://github.com/mr-pennyworth/alfred-asciimath</string>
+</dict>
+</plist>

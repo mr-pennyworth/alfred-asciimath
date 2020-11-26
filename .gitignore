@@ -1,0 +1,10 @@
+*~
+*.pyc
+*.xcworkspace
+*.alfredworkflow
+.idea
+AsciiMath Renderer.app
+DerivedData
+wfbuild
+xcuserdata
+xcuserdata/

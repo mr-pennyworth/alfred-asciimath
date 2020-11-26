@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang=en-US>
+  <head>
+    <meta charset=UTF-8>
+    <title>AsciiMath</title>
+    <script>
+      window.MathJax = {
+        loader: {load: ['input/asciimath', 'output/svg']},
+        svg: {
+          scale: 1.5
+        }
+      };
+    </script>
+    <script type="text/javascript" src="MathJax/startup.js">
+    </script>
+    <script type="text/javascript" src="ASCIIMathTeXImg.js"></script>
+    <style>
+      html, body {
+          height: 100%;
+      }
+      #rendered {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+      }
+      mjx-container[jax="SVG"] > svg {
+          display: block;
+          margin: 0 auto;
+          padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rendered"></div>
+    <!-- <div id="latex"></div> -->
+
+    <script>
+      function getImageBounds() {
+        return JSON.stringify(document.querySelector('svg').getBoundingClientRect());
+      }
+   
+      function getLatex(math) {
+        return `$$ ${AMTparseAMtoTeX(math)} $$`;
+      }
+    
+      function renderMath(math) {
+        var rendered = document.getElementById('rendered');
+        rendered.innerHTML = '`' + math + '`';
+        // var latex = document.getElementById('latex');
+        // latex.innerHTML = `$$ ${AMTparseAMtoTeX(equation)} $$`;
+        if (window.MathJax.typesetClear) {
+          window.MathJax.typesetClear();
+          window.MathJax.typesetPromise([rendered]);
+        }
+      }
+    </script>
+
+  </body>
+</html>
