@@ -1,4 +1,9 @@
 # AsciiMath for Alfred
+
+<a href="https://github.com/mr-pennyworth/alfred-asciimath/releases/latest/">
+  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/mr-pennyworth/alfred-asciimath/total">
+</a><br/><br/>
+
 An [Alfred 4](https://alfredapp.com) workflow that
 renders math as you type and lets you copy the PNG and LaTeX.
 
