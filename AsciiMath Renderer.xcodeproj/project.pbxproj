@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		D03EA901255582BC00D3656E /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D03EA8FC255582BC00D3656E /* PromiseKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D03EA902255582BC00D3656E /* AXSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03EA8FD255582BC00D3656E /* AXSwift.framework */; };
 		D03EA903255582BC00D3656E /* AXSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D03EA8FD255582BC00D3656E /* AXSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D040E2392667550000495B2D /* Alfred in Frameworks */ = {isa = PBXBuildFile; productRef = D040E2382667550000495B2D /* Alfred */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D040E2392667550000495B2D /* Alfred in Frameworks */,
 				D03EA8FE255582BC00D3656E /* Swindler.framework in Frameworks */,
 				D03EA902255582BC00D3656E /* AXSwift.framework in Frameworks */,
 				D03EA900255582BC00D3656E /* PromiseKit.framework in Frameworks */,
@@ -118,6 +120,7 @@
 			);
 			name = "AsciiMath Renderer";
 			packageProductDependencies = (
+				D040E2382667550000495B2D /* Alfred */,
 			);
 			productName = "AsciiMath Renderer";
 			productReference = D03EA8CF25551E0400D3656E /* AsciiMath Renderer.app */;
@@ -148,6 +151,7 @@
 			);
 			mainGroup = D03EA8C625551E0400D3656E;
 			packageReferences = (
+				D040E2372667550000495B2D /* XCRemoteSwiftPackageReference "AlfredSwift" */,
 			);
 			productRefGroup = D03EA8D025551E0400D3656E /* Products */;
 			projectDirPath = "";
@@ -308,7 +312,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 0.0.4;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = mr.pennyworth.AsciiMathRenderer;
@@ -329,7 +333,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 0.0.4;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
@@ -361,6 +365,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D040E2372667550000495B2D /* XCRemoteSwiftPackageReference "AlfredSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mr-pennyworth/AlfredSwift";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D040E2382667550000495B2D /* Alfred */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D040E2372667550000495B2D /* XCRemoteSwiftPackageReference "AlfredSwift" */;
+			productName = Alfred;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D03EA8C725551E0400D3656E /* Project object */;
 }
