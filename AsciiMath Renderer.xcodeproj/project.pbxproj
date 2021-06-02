@@ -11,30 +11,8 @@
 		D03EA8D725551E0700D3656E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03EA8D625551E0700D3656E /* Assets.xcassets */; };
 		D03EA8E4255536EF00D3656E /* equation-renderer in Resources */ = {isa = PBXBuildFile; fileRef = D03EA8E3255536EF00D3656E /* equation-renderer */; };
 		D03EA8FA255567A300D3656E /* AlfredWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EA8F9255567A300D3656E /* AlfredWatcher.swift */; };
-		D03EA8FE255582BC00D3656E /* Swindler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03EA8FB255582BC00D3656E /* Swindler.framework */; };
-		D03EA8FF255582BC00D3656E /* Swindler.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D03EA8FB255582BC00D3656E /* Swindler.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D03EA900255582BC00D3656E /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03EA8FC255582BC00D3656E /* PromiseKit.framework */; };
-		D03EA901255582BC00D3656E /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D03EA8FC255582BC00D3656E /* PromiseKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D03EA902255582BC00D3656E /* AXSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03EA8FD255582BC00D3656E /* AXSwift.framework */; };
-		D03EA903255582BC00D3656E /* AXSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D03EA8FD255582BC00D3656E /* AXSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D040E2392667550000495B2D /* Alfred in Frameworks */ = {isa = PBXBuildFile; productRef = D040E2382667550000495B2D /* Alfred */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		D03EA8F22555664D00D3656E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D03EA8FF255582BC00D3656E /* Swindler.framework in Embed Frameworks */,
-				D03EA903255582BC00D3656E /* AXSwift.framework in Embed Frameworks */,
-				D03EA901255582BC00D3656E /* PromiseKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D03EA8CF25551E0400D3656E /* AsciiMath Renderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AsciiMath Renderer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,9 +21,6 @@
 		D03EA8DB25551E0700D3656E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03EA8E3255536EF00D3656E /* equation-renderer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "equation-renderer"; sourceTree = "<group>"; };
 		D03EA8F9255567A300D3656E /* AlfredWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlfredWatcher.swift; sourceTree = "<group>"; };
-		D03EA8FB255582BC00D3656E /* Swindler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swindler.framework; path = frameworks/Swindler.framework; sourceTree = "<group>"; };
-		D03EA8FC255582BC00D3656E /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = frameworks/PromiseKit.framework; sourceTree = "<group>"; };
-		D03EA8FD255582BC00D3656E /* AXSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AXSwift.framework; path = frameworks/AXSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +29,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D040E2392667550000495B2D /* Alfred in Frameworks */,
-				D03EA8FE255582BC00D3656E /* Swindler.framework in Frameworks */,
-				D03EA902255582BC00D3656E /* AXSwift.framework in Frameworks */,
-				D03EA900255582BC00D3656E /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +84,6 @@
 				D03EA8CB25551E0400D3656E /* Sources */,
 				D03EA8CC25551E0400D3656E /* Frameworks */,
 				D03EA8CD25551E0400D3656E /* Resources */,
-				D03EA8F22555664D00D3656E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,14 +277,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/frameworks/**";
 				INFOPLIST_FILE = "AsciiMath Renderer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.0.4;
+				MARKETING_VERSION = 0.0.5;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = mr.pennyworth.AsciiMathRenderer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -327,14 +297,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/frameworks/**";
 				INFOPLIST_FILE = "AsciiMath Renderer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.0.4;
+				MARKETING_VERSION = 0.0.5;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = mr.pennyworth.AsciiMathRenderer;
