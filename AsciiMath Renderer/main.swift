@@ -1,3 +1,4 @@
+import Alfred
 import AppKit
 import Carbon
 import Foundation
@@ -52,6 +53,7 @@ class AppConfig {
 class AppDelegate: NSObject, NSApplicationDelegate {
   let config: AppConfig
   let alfredWatcher: AlfredWatcher
+  var math: String = ""
 
   lazy var window: NSWindow = {
     let window = NSWindow(
@@ -94,9 +96,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       self.window.orderOut(self)
     })
 
-    // Start hidden, thus makeKeyAndOrderFront isn't called here,
-    // but called only when render url is triggered
-    // window.makeKeyAndOrderFront(self)
+    Alfred.onItemSelect { selectedItem in
+      if let expr = selectedItem.uid {
+        self.math = expr
+        self.renderMath()
+      }
+    }
   }
 
   private func jsCallCode(funcName: String, arg: String) -> String {
@@ -104,7 +109,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     return "\(funcName)('\(escapedArg)')";
   }
 
-  private func renderMath(math: String) {
+  private func renderMath() {
     NSLog("rendering math: \(math)")
     window.makeKeyAndOrderFront(self)
     webview.evaluateJavaScript(
@@ -115,7 +120,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       })
   }
 
-  private func copyLatex(math: String) {
+  private func copyLatex() {
     webview.evaluateJavaScript(
       jsCallCode(funcName: "getLatex", arg: math),
       completionHandler: {(out, err) in
@@ -156,16 +161,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func application(_ application: NSApplication, open urls: [URL]) {
     for url in urls {
       switch url.host {
-      case "render":
-        let math = url.query!.removingPercentEncoding!
-        renderMath(math: math)
-      case "copyImage":
-        copyImage()
-      case "copyLatex":
-        let math = url.query!.removingPercentEncoding!
-        copyLatex(math: math)
-      case _:
-        break
+      case "copyImage": copyImage()
+      case "copyLatex": copyLatex()
+      case _: break
       }
     }
   }

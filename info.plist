@@ -63,29 +63,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>open -g "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>9D7CC295-83F4-487D-9853-DFA698A895B4</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -111,27 +88,30 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>query=$1
-
-function urlquote() {
-  python2 -c "import urllib; import sys; sys.stdout.write(urllib.quote(sys.argv[-1]))" "$1"
+				<string>function is_math_renderer_up() {
+  pgrep 'AsciiMath Renderer' &gt; /dev/null
 }
 
-quoted=$(urlquote "$query")
+function start_math_renderer() {
+  open -g './AsciiMath Renderer.app'
+}
 
-open -g "asciimath://render?$quoted"
+if ! is_math_renderer_up; then
+  start_math_renderer
+fi
 
 cat &lt;&lt; EOF
 {"items": [
     {
         "title": "Copy Math",
         "subtitle": "as Image (⌘: as LaTeX)",
-        "arg": "asciimath://copyImage?$quoted",
+        "arg": "asciimath://copyImage",
+        "uid": "$1",
         "quicklookurl": "$(pwd)/docs/documentation.html",
         "mods": {
             "cmd": {
                 "subtitle": "as LaTeX",
-                "arg": "asciimath://copyLatex?$quoted"
+                "arg": "asciimath://copyLatex"
             }
         }
     }
@@ -156,6 +136,29 @@ EOF</string>
 			<string>BC71E4C2-F3C1-486C-8350-688B1FBAC8DF</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>open -g "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>9D7CC295-83F4-487D-9853-DFA698A895B4</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -281,7 +284,7 @@ All icon credits: flaticon</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>0.0.5</string>
+	<string>0.0.6</string>
 	<key>webaddress</key>
 	<string>https://github.com/mr-pennyworth/alfred-asciimath</string>
 </dict>
