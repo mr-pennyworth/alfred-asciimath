@@ -96,11 +96,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       self.window.orderOut(self)
     })
 
+    let asciiMathWorkflow = Alfred.workflow(id: "mr.pennyworth.asciimath")!
     Alfred.onItemSelect { selectedItem in
-      if let expr = selectedItem.uid {
-        self.math = expr
-        self.renderMath()
+      if let workflowUID = selectedItem.workflowuid {
+        if workflowUID == asciiMathWorkflow.uid {
+          if let expr = selectedItem.uid {
+            self.math = expr
+            self.renderMath()
+            return
+          }
+        }
       }
+      self.window.orderOut(self)
     }
   }
 
