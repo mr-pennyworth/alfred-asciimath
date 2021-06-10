@@ -1,13 +1,16 @@
-# AsciiMath for Alfred
-
+<h1 align="center">
+  
 <a href="https://github.com/mr-pennyworth/alfred-asciimath/releases/latest/">
-  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/mr-pennyworth/alfred-asciimath/total">
-</a><br/><br/>
+  <img src="icon.png" width="16%"><br/>
+  <img alt="Download"
+       src="https://img.shields.io/github/downloads/mr-pennyworth/alfred-asciimath/total?color=purple&label=Download"><br/>
+</a>
+  AsciiMath for Alfred
+</h1>
 
 An [Alfred 4](https://alfredapp.com) workflow that
 renders math as you type and lets you copy the PNG and LaTeX.
-
-![](demo-images/demo.gif)
+<p align="center"><img src="demo-images/demo.gif"></p>
 
 ### Motivation
 My fashcard software supports neither LaTeX nor MathML.
