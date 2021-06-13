@@ -11,6 +11,7 @@ from contextlib import contextmanager
 BUILD_DIR = 'wfbuild'
 WF_FILES = [
   'AsciiMath Renderer.app',
+  'asciimath.sh',
   'demo-images',
   'docs',
   'icon.png',

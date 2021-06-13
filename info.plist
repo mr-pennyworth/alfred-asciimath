@@ -74,7 +74,7 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>0</integer>
 				<key>keyword</key>
 				<string>`</string>
 				<key>queuedelaycustom</key>
@@ -88,45 +88,17 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>function is_math_renderer_up() {
-  pgrep 'AsciiMath Renderer' &gt; /dev/null
-}
-
-function start_math_renderer() {
-  open -g './AsciiMath Renderer.app'
-}
-
-if ! is_math_renderer_up; then
-  start_math_renderer
-fi
-
-cat &lt;&lt; EOF
-{"items": [
-    {
-        "title": "Copy Math",
-        "subtitle": "as Image (⌘: as LaTeX)",
-        "arg": "asciimath://copyImage",
-        "uid": "$1",
-        "quicklookurl": "$(pwd)/docs/documentation.html",
-        "mods": {
-            "cmd": {
-                "subtitle": "as LaTeX",
-                "arg": "asciimath://copyLatex"
-            }
-        }
-    }
-]}
-EOF</string>
+				<string></string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string></string>
+				<string>asciimath.sh</string>
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
 				<string>AsciiMath</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>8</integer>
 				<key>withspace</key>
 				<false/>
 			</dict>
