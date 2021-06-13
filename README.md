@@ -20,11 +20,6 @@ Given that image is the only way to go, I created this workflow.
  1. Download the [latest release](https://github.com/mr-pennyworth/alfred-asciimath/releases/latest/download/AsciiMath.alfredworkflow).
  2. Type `.asciimath-init` in Alfred.
 
-### Permissions explanation
-The accessibility permission is needed so that the math window
-can automatically close if you press `escape` to exit Alfred
-without either copying the image or the LaTeX.
-
 ### Usage instructions
  1. Open Alfred
  2. Type <code>`</code> (backtick)
