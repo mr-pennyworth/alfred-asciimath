@@ -8,19 +8,6 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
-		<key>183B1354-8AC3-4797-9EFF-C9DEEF20D280</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>8C141DAB-74B4-469B-97F5-8A2029575C1B</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>7058A4EE-02E0-4988-9847-D2B58671543B</key>
 		<array>
 			<dict>
@@ -161,52 +148,6 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>xattr -d com.apple.quarantine 'AsciiMath Renderer.app'
-
-open -g 'AsciiMath Renderer.app'</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>8C141DAB-74B4-469B-97F5-8A2029575C1B</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>.asciimath-init</string>
-				<key>subtext</key>
-				<string>permission required to auto-close window on closing alfred-search-bar</string>
-				<key>text</key>
-				<string>Set up and grant permissions to AsciiMath</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>183B1354-8AC3-4797-9EFF-C9DEEF20D280</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string>Set up by typing ".asciimath-init" (without quotes) in Alfred.
@@ -219,26 +160,12 @@ Note:
 All icon credits: flaticon</string>
 	<key>uidata</key>
 	<dict>
-		<key>183B1354-8AC3-4797-9EFF-C9DEEF20D280</key>
-		<dict>
-			<key>xpos</key>
-			<integer>10</integer>
-			<key>ypos</key>
-			<integer>120</integer>
-		</dict>
 		<key>7058A4EE-02E0-4988-9847-D2B58671543B</key>
 		<dict>
 			<key>xpos</key>
 			<integer>10</integer>
 			<key>ypos</key>
 			<integer>10</integer>
-		</dict>
-		<key>8C141DAB-74B4-469B-97F5-8A2029575C1B</key>
-		<dict>
-			<key>xpos</key>
-			<integer>170</integer>
-			<key>ypos</key>
-			<integer>120</integer>
 		</dict>
 		<key>9D7CC295-83F4-487D-9853-DFA698A895B4</key>
 		<dict>
@@ -256,7 +183,7 @@ All icon credits: flaticon</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>0.0.6</string>
+	<string>0.0.7</string>
 	<key>webaddress</key>
 	<string>https://github.com/mr-pennyworth/alfred-asciimath</string>
 </dict>

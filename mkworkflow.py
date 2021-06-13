@@ -14,6 +14,7 @@ WF_FILES = [
   'asciimath.sh',
   'demo-images',
   'docs',
+  'firstrun.sh',
   'icon.png',
   'info.plist',
   'README.md',
@@ -40,6 +41,16 @@ def plistRead(path):
 def plistWrite(obj, path):
   with open(path, 'wb') as f:
     return plistlib.dump(obj, f)
+
+
+def fileRead(path):
+  with open(path) as f:
+    return f.read()
+
+
+def fileWrite(contents, path):
+  with open(path, 'w') as f:
+    f.write(contents)
 
 
 @contextmanager
@@ -104,7 +115,9 @@ if __name__ == '__main__':
 
   subprocess.call(['./mkapp.sh'])
   copy(WF_FILES, BUILD_DIR)
-  wf_name = make_export_ready(f'{BUILD_DIR}/info.plist', big_v)
+  pl_path = f'{BUILD_DIR}/info.plist'
+  fileWrite(fileRead(pl_path).replace('asciimath.sh', 'firstrun.sh'), pl_path)
+  wf_name = make_export_ready(pl_path, big_v)
   with cwd(BUILD_DIR):
     subprocess.call(
       ['zip', '-q', '-r', f'../{wf_name}.alfredworkflow'] + WF_FILES

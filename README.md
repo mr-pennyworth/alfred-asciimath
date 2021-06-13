@@ -16,10 +16,6 @@ renders math as you type and lets you copy the PNG and LaTeX.
 My fashcard software supports neither LaTeX nor MathML.
 Given that image is the only way to go, I created this workflow.
  
-### Setup
- 1. Download the [latest release](https://github.com/mr-pennyworth/alfred-asciimath/releases/latest/download/AsciiMath.alfredworkflow).
- 2. Type `.asciimath-init` in Alfred.
-
 ### Usage instructions
  1. Open Alfred
  2. Type <code>`</code> (backtick)
